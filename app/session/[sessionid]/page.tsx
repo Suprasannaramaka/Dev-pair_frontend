@@ -1,17 +1,27 @@
+"use client";
+import { useParams } from "next/navigation";
+import { SessionProvider } from "@/components/context/SessionContext";
+import SessionGuard from "@/components/session/SessionGuard";
 import ChatPanel from "@/components/chat/ChatPanel";
-import CodeEditor from "@/components/editor/CodeEditor";
-export default function SessionPage({
-  params,
-}: {
-  params: { sessionId: string };
-}) {
+import EditorPanel from "@/components/editor/EditorPanel";
+import VideoCall from "@/components/video/VideoCall";
+
+export default function SessionPage() {
+  const { sessionId } = useParams<{ sessionId: string }>();
+
   return (
-    <div className="flex flex-col h-screen">
-      <div className="flex-1 flex">
-        <div className="flex-1">
-        <CodeEditor sessionId={params.sessionId} user={student}/>
+    <SessionProvider sessionId={sessionId}>
+      <SessionGuard>
+        <div className="grid grid-cols-3 gap-4 h-screen p-4">
+          <div className="col-span-2">
+            <EditorPanel />
+          </div>
+          <div className="col-span-1 space-y-4">
+            <VideoCall />
+             <ChatPanel />
+          </div>
         </div>
-        </div>
-        </div>
+      </SessionGuard>
+    </SessionProvider>
   );
 }
