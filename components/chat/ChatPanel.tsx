@@ -5,12 +5,13 @@ import { useChat } from "@/hooks/useChat";
 import MessageItem from "./MessageItem";
 
 export default function ChatPanel({
-  sessionId,
-  user,
-}: {
+    sessionId,
+    user
+  } : {
   sessionId: string;
   user: string;
-}) {
+})
+{
   const { messages, sendMessage } = useChat(sessionId, user);
   const [input, setInput] = useState("");
 

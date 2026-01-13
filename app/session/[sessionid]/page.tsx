@@ -17,8 +17,8 @@ export default function SessionPage() {
             <EditorPanel />
           </div>
           <div className="col-span-1 space-y-4">
-            <VideoCall />
-             <ChatPanel />
+            <VideoCall sessionId={""} />
+             <ChatPanel  sessionId={""} user={""}/>
           </div>
         </div>
       </SessionGuard>
