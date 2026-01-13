@@ -1,6 +1,6 @@
 "use client";
 import { useWebRTC } from "@/hooks/useWebrtc";
-import VideoTile from "./VideoTitle";
+import VideoTile from "./VideoTile";
 import VideoControls from "./VideoControl";
 export default function VideoCall({
   sessionId,
