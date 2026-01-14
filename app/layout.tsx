@@ -10,7 +10,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider>
            {children}
         </ThemeProvider>
         </body>
