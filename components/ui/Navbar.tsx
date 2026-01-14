@@ -10,7 +10,7 @@ function Navbar() {
         {/* Left section */}
       <div className="flex items-center space-x-1.5">
           <Button asChild variant="outline"><Link href="/login">Login</Link></Button>
-          <Button asChild variant="outline"><Link href="/Signup">SignUp</Link></Button>
+          <Button asChild variant="outline"><Link href="/signup">SignUp</Link></Button>
     </div>
     {/*Logo*/}
   <span className="text-black bg-white inline-flex rounded-xl font-bold p-2 border-4 w-auto">
