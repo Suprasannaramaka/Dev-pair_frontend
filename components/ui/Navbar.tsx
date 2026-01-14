@@ -17,8 +17,8 @@ function Navbar() {
     <Image src="/devpair.logo.jpg" alt="DevPair Logo" width={50} height={10} />DEV-PAIR</span>
     {/*Right Section*/}
           <div className="flex items-center space-x-1.5">
-           <Button asChild variant="outline"><Link href="/www.google.com">Features</Link></Button>
-          <Button asChild variant="outline"><Link href="/About">About Us</Link></Button>
+           <Button asChild variant="outline"><Link href="/">Features</Link></Button>
+          <Button asChild variant="outline"><Link href="/about">About Us</Link></Button>
           <ModeToggle/>
           </div>
           </div>
