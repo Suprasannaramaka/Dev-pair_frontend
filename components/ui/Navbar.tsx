@@ -9,7 +9,7 @@ function Navbar() {
       <div className="flex items-center justify-between w-full">
         {/* Left section */}
       <div className="flex items-center space-x-1.5">
-          <Button asChild variant="outline"><Link href="/Login">Login</Link></Button>
+          <Button asChild variant="outline"><Link href="/app/login/page.tsx">Login</Link></Button>
           <Button asChild variant="outline"><Link href="/Signup">SignUp</Link></Button>
     </div>
     {/*Logo*/}
