@@ -14,7 +14,7 @@ function Navbar() {
     </div>
     {/*Logo*/}
   <span className="text-black bg-white inline-flex rounded-xl font-bold p-2 border-4 w-auto">
-    <Image src="/devpair.logo.jpg" width={50} height={10} alt="DevPair Logo" />DEV-PAIR</span>
+    <Image src="/devpair.logo.jpg" alt="DevPair Logo" width={50} height={10} />DEV-PAIR</span>
     {/*Right Section*/}
           <div className="flex items-center space-x-1.5">
            <Button asChild variant="outline"><Link href="/www.google.com">Features</Link></Button>
