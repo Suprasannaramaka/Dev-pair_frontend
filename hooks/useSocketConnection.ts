@@ -8,7 +8,8 @@ export function useSocketConnection() {
   useEffect(() => {
     socket.connect();
 
-    socket.on("connect", () => setState("active"));
+    socket.on("connect", () => {console.log("Connected to socket:" , socket.id);
+    })
     socket.on("disconnect", () => setState("disconnected"));
 
     return () => {
