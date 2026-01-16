@@ -4,8 +4,8 @@ import LanguageSelector from "./LanguageSelector";
 import { useEditorSync } from "@/hooks/useEditorSync";
 
 export default function EditorPanel() {
-  const { code, setCode, language, setLanguage } = useEditorSync();
-
+  const { code,setCode, language, setLanguage() } = useEditorSync();
+  {
   return (
     <div className="h-full flex flex-col border rounded">
       <div className="p-2 border-b">
@@ -20,5 +20,6 @@ export default function EditorPanel() {
         />
       </div>
     </div>
-  );
+  )
+  }
 }
