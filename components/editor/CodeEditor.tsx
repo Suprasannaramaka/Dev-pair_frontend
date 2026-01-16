@@ -1,5 +1,5 @@
 "use client";
-import Editor from  "@/monaco/react";
+import Editor from "@monaco-editor/react";
 
 type Props = {
   code: string;

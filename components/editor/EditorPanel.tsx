@@ -5,18 +5,14 @@ import LanguageSelector from "./LanguageSelector";
 import CursorOverlay from "./CursorOverlay";
 import { useEditorSync } from "@/hooks/useEditorSync";
 
-type Props = {
-  sessionId: string;
-};
-
-export default function EditorPanel({ sessionId }: Props) {
+export default function EditorPanel() {
   const {
     code,
-    updateCode,
+     updateCode,
     language,
     setLanguage,
     cursors,
-  } = useEditorSync(sessionId);
+  } = useEditorSync();
 
   return (
     <div className="h-full flex flex-col border rounded relative">
