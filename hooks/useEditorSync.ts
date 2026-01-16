@@ -1,20 +1,41 @@
 import { useEffect, useRef, useState } from "react";
 import { socket } from "@/lib/socket";
 
+type Cursor = {
+  userId: string;
+  username: string;
+  line: number;
+  column: number;
+};
+
 export function useEditorSync(sessionId: string) {
   const [code, setCode] = useState("// Start coding...");
+  const [language, setLanguage] = useState("javascript");
+  const [cursors, setCursors] = useState<Cursor[]>([]);
+
   const isRemoteUpdate = useRef(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  /* ---------------- CODE SYNC ---------------- */
   useEffect(() => {
     socket.on("code-update", (newCode: string) => {
       isRemoteUpdate.current = true;
       setCode(newCode);
     });
 
+    socket.on("cursor-update", (cursor: Cursor) => {
+      setCursors(prev => {
+        const filtered = prev.filter(c => c.userId !== cursor.userId);
+        return [...filtered, cursor];
+      });
+    });
+
     return () => {
       socket.off("code-update");
+      socket.off("cursor-update");
     };
   }, []);
+
   const updateCode = (newCode: string) => {
     setCode(newCode);
 
@@ -33,5 +54,11 @@ export function useEditorSync(sessionId: string) {
     }, 300);
   };
 
-  return { code, updateCode };
+  return {
+    code,
+    updateCode,
+    language,
+    setLanguage,
+    cursors,
+  };
 }
