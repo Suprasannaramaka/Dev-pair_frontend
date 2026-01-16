@@ -11,14 +11,11 @@ export function useChat(
   const [messages, setMessages] = useState<Message[]>([]);
 
   useEffect(() => {
-    // Join session room
     socket.emit(SOCKET_EVENTS.JOIN_SESSION, {
       sessionId,
       userId,
       role,
     });
-
-    // Listen for incoming messages
     const onReceiveMessage = (message: Message) => {
       setMessages((prev) => [...prev, message]);
     };
