@@ -13,9 +13,9 @@ export default function Page() {
       <br/>
       <p className="pr-50 flex flex-row items-center pl-50 gap-2.5">
         Follow us on:
-        <Image src="/linkdin-logo.webp" alt="LinkedIn" width="20" height="5"/><a href="https://www.linkedin.com/company/devpair">LinkedIn</a>
-        <Image src="/instagram-logo.png" alt="Instagram" width="20" height="5" /><a href="https://www.instagram.com/devpair">Instagram</a>
-        <Image src="/telegram-logo.png" alt="Telegram" width="20" height="5" /><a href="https://www.telegram.com/company/devpair">Telegram</a>
+        <Image src="/linkdin-logo.webp" alt="LinkedIn" width="20" height="5" className="h-auto w-auto"/><a href="https://www.linkedin.com/company/devpair">LinkedIn</a>
+        <Image src="/instagram-logo.png" alt="Instagram" width="20" height="5" className="h-auto w-auto"/><a href="https://www.instagram.com/devpair">Instagram</a>
+        <Image src="/telegram-logo.png" alt="Telegram" width="20" height="5" className="h-auto w-auto"/><a href="https://www.telegram.com/company/devpair">Telegram</a>
       </p>
     </div>
     </main>
