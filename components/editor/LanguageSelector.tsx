@@ -1,25 +1,18 @@
 "use client";
-import {LANGUAGES} from "@/lib/monaco";
 
-export default function LanguageSelector({
-    language,
-    setLanguage,
-}: {
-    language: string,
-    setLanguage:(lang: string) => void;
-})
-{
-    return(
-    <select aria-label="state"
-    className="border p-2"
-     value={language} 
-     onChange={(e) => setLanguage(e.target.value)}>
-        {LANGUAGES.map((lang) =>
-        (
-            <option  key={lang} value={lang}>
-            {lang}
-            </option>
-        ))}
+type Props = {
+  value: string;
+  onChange: (language: string) => void;
+};
+
+export default function LanguageSelector({ value, onChange }: Props) {
+  return (
+    <select value={value} onChange={(e) => onChange(e.target.value)} className="border rounded px-2 py-1 text-sm bg-background">
+      <option value="javascript">JavaScript</option>
+      <option value="typescript">TypeScript</option>
+      <option value="python">Python</option>
+      <option value="cpp">C++</option>
+      <option value="java">Java</option>
     </select>
-    );
+  );
 }

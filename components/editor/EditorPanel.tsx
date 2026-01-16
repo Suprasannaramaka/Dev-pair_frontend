@@ -4,13 +4,15 @@ import CodeEditor from "./CodeEditor";
 import LanguageSelector from "./LanguageSelector";
 import CursorOverlay from "./CursorOverlay";
 import { useEditorSync } from "@/hooks/useEditorSync";
-type Props ={
+
+type Props = {
   sessionId: string;
-}
-export default function EditorPanel() {
+};
+
+export default function EditorPanel({ sessionId }: Props) {
   const {
     code,
-     updateCode,
+    updateCode,
     language,
     setLanguage,
     cursors,
