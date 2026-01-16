@@ -11,7 +11,7 @@ export default function ChatPanel({
   user: string;
 })
 {
-  const { messages, sendMessage } = useChat(sessionId, user);
+  const { messages, sendMessage } = useChat(sessionId , user);
   const [input, setInput] = useState("");
 
   const handleSend = () => {
