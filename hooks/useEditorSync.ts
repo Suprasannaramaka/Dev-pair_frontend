@@ -15,8 +15,6 @@ export function useEditorSync(sessionId: string) {
 
   const isRemoteUpdate = useRef(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  /* ---------------- CODE SYNC ---------------- */
   useEffect(() => {
     socket.on("code-update", (newCode: string) => {
       isRemoteUpdate.current = true;
