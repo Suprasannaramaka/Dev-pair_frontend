@@ -6,9 +6,11 @@ import ChatPanel from "@/components/chat/ChatPanel";
 import EditorPanel from "@/components/editor/EditorPanel";
 import VideoCall from "@/components/video/VideoCall";
 
+type Props = {
+  sessionId: string;
+};
 export default function SessionPage() {
   const { sessionId } = useParams<{ sessionId: string }>();
-
   return (
     <SessionProvider sessionId={sessionId}>
       <SessionGuard>
