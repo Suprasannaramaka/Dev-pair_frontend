@@ -1,7 +1,5 @@
 "use client";
-
 import { useState } from "react";
-import { Message } from "@/types/message";
 import { useChat } from "@/hooks/useChat";
 import MessageItem from "./MessageItem";
 
