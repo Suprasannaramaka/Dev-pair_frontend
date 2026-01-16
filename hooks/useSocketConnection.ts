@@ -14,5 +14,5 @@ export function useSocketConnection() {
     return () => {
       socket.disconnect();
     };
-  }, []);
+  });
 }
