@@ -1,18 +1,15 @@
-import { useEffect } from "react";
 import { socket } from "@/lib/socket";
-import { useSession } from "@/components/context/SessionContext";
-
-export function useSocketConnection() {
-  const { setState } = useSession();
-
+import { useEffect } from "react";
+export function useSocketConnection(sessionId: string) {
   useEffect(() => {
-    socket.connect();
+    if (!sessionId) return;
 
-    socket.on("connect", () => setState("active"));
-    socket.on("disconnect", () => setState("disconnected"));
+    socket.connect();
+    socket.emit("join-session", { sessionId });
 
     return () => {
       socket.disconnect();
     };
-  });
+  }, [sessionId]);
 }
+
