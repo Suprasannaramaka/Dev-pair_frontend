@@ -9,7 +9,7 @@ export default function Page() {
       <p>The Best online 1-on-1 Mentor-Student Platform</p>
       <p>Connect with mentors and students for personalized learning experiences.</p>
       <br/>
-      <Image src="/student-mentor.jpg" width={800} height={300} alt="student-mentor" className="rounded-lg" loading="eager"/>
+      <Image src="/student-mentor.jpg" height={300} width={800} alt="student-mentor" className="rounded-lg h-300 w-[800]"/>
       <br/>
       <p className="pr-50 flex flex-row items-center pl-50 gap-2.5">
         Follow us on:
