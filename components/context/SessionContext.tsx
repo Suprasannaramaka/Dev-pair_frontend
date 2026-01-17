@@ -1,15 +1,9 @@
 "use client";
-import { createContext, useContext, useState } from "react";
-type SessionState =
-  | "idle"
-  | "connecting"
-  | "active"
-  | "disconnected";
-
+import { createContext, useContext } from "react";
 type SessionContextType = {
   sessionId: string;
-  state: SessionState;
-  setState: (s: SessionState) => void;
+  userId: string;
+  role: "mentor" | "student";
 };
 
 const SessionContext = createContext<SessionContextType | null>(null);
@@ -21,17 +15,19 @@ export function SessionProvider({
   sessionId: string;
   children: React.ReactNode;
 }) {
-  const [state, setState] = useState<SessionState>("connecting");
-
+  const userId = "user-123";
+  const role: "mentor" | "student" = sessionId.startsWith("m")
+    ? "mentor"
+    : "student";
   return (
-    <SessionContext.Provider value={{ sessionId, state, setState }}>
+    <SessionContext.Provider value={{ sessionId, userId, role }}>
       {children}
     </SessionContext.Provider>
   );
 }
 
-export const useSession = () => {
+export function useSession() {
   const ctx = useContext(SessionContext);
-  if (!ctx) throw new Error("useSession outside provider");
+  if (!ctx) throw new Error("useSession must be used inside SessionProvider");
   return ctx;
-};
+}
