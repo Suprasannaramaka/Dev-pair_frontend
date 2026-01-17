@@ -1,15 +1,12 @@
 "use client";
-
+import { useParams } from "next/navigation";
 import CodeEditor from "./CodeEditor";
 import LanguageSelector from "./LanguageSelector";
 import CursorOverlay from "./CursorOverlay";
 import { useEditorSync } from "@/hooks/useEditorSync";
 
-type Props = {
-  sessionId: string;
-};
-
-export default function EditorPanel({ sessionId }: Props) {
+export default function EditorPanel() {
+    const { sessionId } = useParams<{sessionId: string }>();
   const {
     code,
     updateCode,
