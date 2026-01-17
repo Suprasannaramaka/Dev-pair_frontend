@@ -1,17 +1,16 @@
 import {Message} from "@/types/message";
-import {SystemMessage} from "@/"
+import SystemMessage from "./SystemMessage";
 export default function MessageItem({ message }: { message: Message }) {
-  if (message.type === "system") {
+  if (message.senderRole === "system") {
     return (
-      <p className="text-center text-sm text-gray-500">
-        {message.text}
-      </p>
+      <SystemMessage message={message}/>
     );
   }
   return (
     <div className="mb-2">
-      <span className="font-semibold">{message.senderId}: </span>
-      <span>{message.text}</span>
+      <span className="font-semibold">{message.senderRole}:</span>
+      {""}
+      <span>{message.content}</span>
     </div>
   );
 }
