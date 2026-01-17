@@ -1,4 +1,4 @@
-import { Message } from "@/hooks/useChat";
+import {Message}  from "@/hooks/useChat";
 export default function MessageItem({ message }: { message: Message }) {
   if (message.type === "system") {
     return (

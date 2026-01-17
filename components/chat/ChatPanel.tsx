@@ -1,17 +1,19 @@
 "use client";
 import { useState } from "react";
-import { useChat } from "@/hooks/useChat";
+import useChat  from "@/hooks/useChat";
 import MessageItem from "./MessageItem";
 
 export default function ChatPanel({
     sessionId,
-    user
+    user,
+   role,
   } : {
   sessionId: string;
   user: string;
+  role: "mentor" | "student"
 })
 {
-  const { messages, sendMessage } = useChat(sessionId , user);
+  const { messages, sendMessage } = useChat(sessionId , user,role);
   const [input, setInput] = useState("");
 
   const handleSend = () => {

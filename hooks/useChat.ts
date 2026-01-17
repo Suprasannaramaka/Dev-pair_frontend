@@ -3,7 +3,7 @@ import { socket } from "@/lib/socket";
 import { Message } from "@/types/message";
 import { SOCKET_EVENTS } from "@/utils/constants";
 
-export function useChat(
+export default function useChat(
   sessionId: string,
   userId: string,
   role: "mentor" | "student"
