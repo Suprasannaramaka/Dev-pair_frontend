@@ -14,12 +14,12 @@ export default function SessionPage() {
       <SessionGuard>
         <div className="grid grid-cols-3 gap-4 h-screen p-4">
           <div className="col-span-2">
-            <EditorPanel sessionId={sessionId} />
+            <EditorPanel />
           </div>
 
           <div className="col-span-1 space-y-4">
             <VideoCall sessionId={sessionId} />
-            <ChatPanel />
+            <ChatPanel/>
           </div>
         </div>
       </SessionGuard>
