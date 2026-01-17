@@ -1,26 +1,38 @@
 "use client";
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
+
+type Role = "mentor" | "student";
+
 type SessionContextType = {
-  sessionId: string;
-  userId: string;
-  role: "mentor" | "student";
+  userId: string | null;
+  role: Role | null;
+  loading: boolean;
 };
 
 const SessionContext = createContext<SessionContextType | null>(null);
 
 export function SessionProvider({
-  sessionId,
   children,
+  sessionId,
+  
 }: {
-  sessionId: string;
   children: React.ReactNode;
+  sessionId?: string;
 }) {
-  const userId = "user-123";
-  const role: "mentor" | "student" = sessionId.startsWith("m")
-    ? "mentor"
-    : "student";
+  const [userId, setUserId] = useState<string | null>(null);
+  const [role, setRole] = useState<Role | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setUserId("user-123");
+      setRole("student"); //
+      setLoading(false);
+    }, 500);
+  }, []);
+
   return (
-    <SessionContext.Provider value={{ sessionId, userId, role }}>
+    <SessionContext.Provider value={{ userId, role, loading }}>
       {children}
     </SessionContext.Provider>
   );
