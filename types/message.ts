@@ -1,4 +1,4 @@
-export type Message = {
+export type  Message = {
   id: string;
   sessionId: string;
   senderId: string;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { socket } from "@/lib/socket";
-import { Message } from "@/types/message";
+import {Message} from "@/types/message";
 import { SOCKET_EVENTS } from "@/utils/constants";
 
 export default function useChat(

@@ -1,4 +1,5 @@
-import {Message}  from "@/hooks/useChat";
+import {Message} from "@/types/message";
+import {SystemMessage} from "@/"
 export default function MessageItem({ message }: { message: Message }) {
   if (message.type === "system") {
     return (
@@ -9,7 +10,7 @@ export default function MessageItem({ message }: { message: Message }) {
   }
   return (
     <div className="mb-2">
-      <span className="font-semibold">{message.sender}: </span>
+      <span className="font-semibold">{message.senderId}: </span>
       <span>{message.text}</span>
     </div>
   );
